@@ -1,4 +1,5 @@
 package Modelo;
+import Modelo.DatosCadete;
 
 //Clase que almacenará todos los datos de un cadete
 public class Cadete {

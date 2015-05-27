@@ -10,13 +10,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 
+
 import Modelo.Cadete;
+import Modelo.DatosCadete;
 import Modelo.IngresoLaby;
 
 public class FrameLaby extends JFrame {
 
 	private JPanel perfil;
-	private Cadete datosCadete=new Cadete();
+	private DatosCadete datosCadete=new DatosCadete();
 
 	/**
 	 * Launch the application.
@@ -31,11 +33,7 @@ public class FrameLaby extends JFrame {
 		setTitle("THE LABY");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 443);
-		
-		//perfil = new JPanel();
-		//setContentPane(perfil);
-		//perfil.setBorder(new EmptyBorder(5, 5, 5, 5));
-		
+			
 		
 		
 		perfil=new JPanel();

@@ -6,20 +6,28 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+
 import Modelo.Cadete;
+import Modelo.DatosCadete;
 import Modelo.IngresoLaby;
+
+import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Iterator;
+
 
 public class PerfilUsuario extends JPanel {
 	private JLabel lblfoto, lblNombre, lblId, lblApellidos, lblEdad, lblNacionalidad; 
 	private JTextField textNombre, textId, textApellidos, textEdad, textNacionalidad;
 	private JButton btnSiguiente;
+	private Iterator<String[]> infocadete;
+	private JPanel panel2;
 
 	/**
 	 * Create the panel.
 	 */
-	public PerfilUsuario(JPanel perfil,Cadete datosCadete) {
+	public PerfilUsuario(JPanel perfil,DatosCadete datosCadete) {
 		
 		setLayout(null);
 		
@@ -69,23 +77,26 @@ public class PerfilUsuario extends JPanel {
 		textEdad.setColumns(10);
 		
 		lblNacionalidad = new JLabel("Nacionalidad");
-		lblNacionalidad.setBounds(161, 243, 99, 14);
+		lblNacionalidad.setBounds(161, 231, 99, 14);
 		add(lblNacionalidad);
-		
-		textNacionalidad = new JTextField();
-		textNacionalidad.setEditable(false);
-		textNacionalidad.setBounds(161, 268, 192, 20);
-		add(textNacionalidad);
-		textNacionalidad.setColumns(10);
 		
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
+				panel2=new PerfilEquipo(perfil, datosCadete); 
+				perfil.add(panel2, "perfilEquipo");
+				CardLayout c=(CardLayout) perfil.getLayout();
+				c.show(perfil, "perfilEquipo");
 			}
 		});
-		//btnSiguiente.setVisible(true);
-		btnSiguiente.setBounds(264, 348, 89, 23);
+		btnSiguiente.setBounds(264, 287, 89, 23);
 		add(btnSiguiente);
+		
+		textNacionalidad = new JTextField();
+		textNacionalidad.setEditable(false);
+		textNacionalidad.setBounds(161, 256, 192, 20);
+		add(textNacionalidad);
+		textNacionalidad.setColumns(10);
 
 	}
 }

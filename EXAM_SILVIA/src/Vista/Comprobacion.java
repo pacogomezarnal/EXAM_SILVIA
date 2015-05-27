@@ -4,18 +4,24 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
 import Modelo.Cadete;
+import Modelo.DatosCadete;
 import Modelo.IngresoLaby;
+
+import java.awt.CardLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Comprobacion extends JPanel {
 	private JTextField textId, text1Apellido, textMensDev;
 	private JLabel lblId, lbl1Apellido;
 	private JButton btnComprobar, btnAtrs;
-
+	private JPanel panel2;
 	/**
 	 * Create the panel.
 	 */
-	public Comprobacion(JPanel perfil,Cadete datosusuarios) {
+	public Comprobacion(JPanel perfil,DatosCadete datosCadete) {
 		setLayout(null);
 		
 		textId = new JTextField();
@@ -46,7 +52,15 @@ public class Comprobacion extends JPanel {
 		textMensDev.setColumns(10);
 		
 		btnAtrs = new JButton("Atr\u00E1s");
-		btnAtrs.setBounds(21, 353, 89, 23);
+		btnAtrs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel2=new PerfilEquipo(perfil, datosCadete); 
+				perfil.add(panel2, "perfilEquipo");
+				CardLayout c=(CardLayout) perfil.getLayout();
+				c.show(perfil, "perfilEquipo");
+			}
+		});
+		btnAtrs.setBounds(12, 261, 89, 23);
 		add(btnAtrs);
 
 	}
