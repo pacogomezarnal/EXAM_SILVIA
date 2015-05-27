@@ -9,7 +9,7 @@ import javax.swing.JButton;
 
 import Modelo.Cadete;
 import Modelo.DatosCadete;
-import Modelo.IngresoLaby;
+
 
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
